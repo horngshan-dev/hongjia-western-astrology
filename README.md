@@ -1,6 +1,6 @@
 # 洪家城隍爺｜西洋命盤開源候選服務
 
-發布主體：洪聖添。版本0.5.1，日期2026-11-01。新專案程式採AGPL-3.0-only；第三方授權與原始通知保留。本包是可重建、本機驗證的候選服務，已建立獨立公開GitHub儲存庫，尚未部署或接入GPT／網站。
+發布主體：洪聖添。版本0.5.2，日期2026-11-01。新專案程式採AGPL-3.0-only；第三方授權與原始通知保留。本包是可重建、本機驗證的候選服務，已建立獨立公開GitHub儲存庫，尚未部署或接入GPT／網站。
 
 ## 本包公開範圍
 
@@ -28,7 +28,7 @@ PYTHONPATH=vendor python -m unittest discover -v
 PYTHONPATH=vendor python service.py
 ```
 
-只監聽127.0.0.1:8080。GET /healthz與/license；GET /source.tar.gz不需認證，提供本次建置的完整對應源碼；POST /v1/astrology/natal需專用Bearer金鑰。勿重用原正式八字紫微金鑰。所有計算結果production_ready=false，並帶source_url。生產接入時需以實際公開來源URL取代相對連結，並在GPT／網站使用者可見處持續呈現，不能僅藏在工具JSON。
+只監聽127.0.0.1:8080。GET /health與/license；GET /source不需認證，提供本次建置的完整對應源碼；POST /v1/astrology/natal需專用Bearer金鑰。勿重用原正式八字紫微金鑰。所有計算結果production_ready=false，並帶source_url。生產接入時需以實際公開來源URL取代相對連結，並在GPT／網站使用者可見處持續呈現，不能僅藏在工具JSON。
 
 服務不將請求本文寫入日誌或資料庫；這不是對作業系統、反向代理或未來雲端平台日誌的保證。HTTP非TLS，只限本機；正式服務另需TLS入口、速率與資源限制、逾時與隱私驗收。
 
@@ -48,3 +48,5 @@ PYTHONPATH=vendor python service.py
 公開源碼：https://github.com/horngshan-dev/hongjia-western-astrology
 
 Dockerfile為待雲端建置驗證的候選設定，本輪未執行容器建置，也未新建雲端服務或金鑰。
+
+Cloud Run保留路徑修正：健康檢查/health、源碼下載/source，避免以z結尾的URL。見 https://docs.cloud.google.com/run/docs/known-issues#reserved-urls 。本機新增路徑回歸後34項測試通過；候選雲端修復驗收另行記錄。

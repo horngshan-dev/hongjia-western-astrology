@@ -20,11 +20,11 @@ class Handler(BaseHTTPRequestHandler):
         body=json.dumps(value,ensure_ascii=False,allow_nan=False).encode()
         self.send_response(status);self.send_header('Content-Type','application/json; charset=utf-8')
         self.send_header('Content-Length',str(len(body)));self.send_header('Cache-Control','no-store')
-        self.send_header('Link','</source.tar.gz>; rel="service-desc"');self.end_headers();self.wfile.write(body)
+        self.send_header('Link','</source>; rel="service-desc"');self.end_headers();self.wfile.write(body)
     def do_GET(self):
-        if self.path=='/healthz':return self.reply(200,{'status':'candidate','production_ready':False,'source_url':'/source.tar.gz'})
-        if self.path=='/license':return self.reply(200,{'license':'AGPL-3.0-only','source_url':'/source.tar.gz','publisher':'洪聖添','notice':'No warranty. Third-party notices retained.'})
-        if self.path=='/source.tar.gz':
+        if self.path=='/health':return self.reply(200,{'status':'candidate','production_ready':False,'source_url':'/source'})
+        if self.path=='/license':return self.reply(200,{'license':'AGPL-3.0-only','source_url':'/source','publisher':'洪聖添','notice':'No warranty. Third-party notices retained.'})
+        if self.path=='/source':
             archive=self.server.source_archive
             if not archive.is_file():return self.reply(503,{'code':'SOURCE_ARCHIVE_UNAVAILABLE'})
             body=archive.read_bytes();self.send_response(200)
@@ -64,7 +64,7 @@ class Handler(BaseHTTPRequestHandler):
             result=calculate(self.server.library,data['date'],data['time'],data['timezone'],data['latitude'],data['longitude'],precision=data['precision'],fold=data.get('fold'))
         except Exception:
             return self.reply(503,{'code':'ENGINE_UNAVAILABLE','chart':None})
-        result['source_url']='/source.tar.gz'
+        result['source_url']='/source'
         self.reply(200 if result['status']=='candidate_calculated' else 422,result)
 
 

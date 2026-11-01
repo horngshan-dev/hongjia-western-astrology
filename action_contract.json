@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "洪家城隍爺西洋命盤候選介面",
-    "version": "0.5.0",
+    "version": "0.5.2",
     "description": "已實作本機候選API；尚未公開部署或啟用正式解讀。"
   },
   "paths": {
@@ -72,7 +72,7 @@
         ]
       }
     },
-    "/source.tar.gz": {
+    "/source": {
       "get": {
         "operationId": "downloadCorrespondingSource",
         "security": [],

@@ -1,6 +1,6 @@
 # 洪家城隍爺｜西洋命盤開源候選服務
 
-發布主體：洪聖添。版本0.5.2，日期2026-11-01。新專案程式採AGPL-3.0-only；第三方授權與原始通知保留。本包是可重建、本機驗證的候選服務，已建立獨立公開GitHub儲存庫，尚未部署或接入GPT／網站。
+發布主體：洪聖添。版本0.5.2，日期2026-11-01。新專案程式採AGPL-3.0-only；第三方授權與原始通知保留。本包是可重建、本機驗證的候選服務，已建立獨立公開GitHub儲存庫，已部署獨立候選服務，尚未接入GPT／網站。
 
 ## 本包公開範圍
 
@@ -47,6 +47,8 @@ PYTHONPATH=vendor python service.py
 
 公開源碼：https://github.com/horngshan-dev/hongjia-western-astrology
 
-Dockerfile為待雲端建置驗證的候選設定，本輪未執行容器建置，也未新建雲端服務或金鑰。
+Dockerfile已通過候選雲端建置，已完成容器建置、獨立候選服務與專用金鑰設定，34項本機及23項雲端檢查通過；詳細狀態見DEPLOYMENT.md。
 
 Cloud Run保留路徑修正：健康檢查/health、源碼下載/source，避免以z結尾的URL。見 https://docs.cloud.google.com/run/docs/known-issues#reserved-urls 。本機新增路徑回歸後34項測試通過；候選雲端修復驗收另行記錄。
+
+候選部署已通過驗收，並非GPT功能正式上線。健康與源碼入口、固定版本及驗收結果見[DEPLOYMENT.md](DEPLOYMENT.md)。

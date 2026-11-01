@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "candidate_ready",
+      "pass": true
+    },
+    {
+      "check": "scale_min_zero_max_one",
+      "pass": true
+    },
+    {
+      "check": "serial_concurrency",
+      "pass": true
+    },
+    {
+      "check": "dedicated_runtime",
+      "pass": true
+    },
+    {
+      "check": "pinned_image",
+      "pass": true
+    },
+    {
+      "check": "public_health",
+      "pass": true
+    },
+    {
+      "check": "missing_key_rejected",
+      "pass": true
+    },
+    {
+      "check": "wrong_key_rejected",
+      "pass": true
+    },
+    {
+      "check": "authenticated_chart",
+      "pass": true
+    },
+    {
+      "check": "sample_sun_matches",
+      "pass": true
+    },
+    {
+      "check": "sample_ascendant_matches",
+      "pass": true
+    },
+    {
+      "check": "unknown_time",
+      "pass": true
+    },
+    {
+      "check": "branch_only",
+      "pass": true
+    },
+    {
+      "check": "dst_gap",
+      "pass": true
+    },
+    {
+      "check": "private_extra_field",
+      "pass": true
+    },
+    {
+      "check": "source_without_auth",
+      "pass": true
+    },
+    {
+      "check": "source_contains_licenses_engine_timezone",
+      "pass": true
+    },
+    {
+      "check": "source_upstream_git_hashes",
+      "pass": true
+    },
+    {
+      "check": "secret_not_in_source",
+      "pass": true
+    },
+    {
+      "check": "corresponding_source_sha256",
+      "pass": true
+    },
+    {
+      "check": "scoped_secret_access",
+      "pass": true
+    },
+    {
+      "check": "public_source_invoker",
+      "pass": true
+    },
+    {
+      "check": "original_production_unchanged",
+      "pass": true
+    }
+  ],
+  "source_commit": "3876f318cbfc512c7639f7023595e129e80267d5",
+  "service_url": "https://hongjia-western-api-candidate-dqzyrfruja-de.a.run.app",
+  "revision": "hongjia-western-api-candidate-agpl-3876f31",
+  "image": "asia-east1-docker.pkg.dev/project-b25ec619-62d1-4d6e-afb/cloud-run-source-deploy/hongjia-western-api-candidate:3876f31@sha256:42210b013b994747ca1e688cc470043b37232d7be60f6be12dab7a4e3f48737c",
+  "source_archive_sha256": "589b4e1b8af6f6022780640763107f9c3c5f9949771e02d158e07bcbd6bde8d1",
+  "production_ready": false
+}

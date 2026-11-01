@@ -1,0 +1,94 @@
+{
+  "repository": "aloistr/swisseph",
+  "commit": "94621aba9f3ff9c32cb721eac0380c30dbb153fe",
+  "files": [
+    {
+      "path": "swedate.c",
+      "sha": "b31d7274201e7000e3978f3ade3d12eb23a45922"
+    },
+    {
+      "path": "swehouse.c",
+      "sha": "1c5bbd3f16892df1a4e55c398ed8d1900fda3871"
+    },
+    {
+      "path": "swejpl.c",
+      "sha": "6eb5dcb053b49ed00ed23119d0bb7b4e4c342617"
+    },
+    {
+      "path": "swemmoon.c",
+      "sha": "dcddb1dff66877c9880e0ee526dad307d755adb5"
+    },
+    {
+      "path": "swemplan.c",
+      "sha": "f0ec8efab0b407cdbe8f0cf693e65b0a295e0e4e"
+    },
+    {
+      "path": "sweph.c",
+      "sha": "d1325c1029a45f9e99c7545527383d389d6880be"
+    },
+    {
+      "path": "swephlib.c",
+      "sha": "2ccfdbb2679aeb57c4280c07e3c6ced94a1bae37"
+    },
+    {
+      "path": "swecl.c",
+      "sha": "69447ab82e248225a1618d3ed6a9831b94d2ad37"
+    },
+    {
+      "path": "swehel.c",
+      "sha": "290bb4d82b887eb02f19dc44297c5d27b1e9c994"
+    },
+    {
+      "path": "swetest.c",
+      "sha": "43828f70cb22929042200e76d2b3d6752f198766"
+    },
+    {
+      "path": "swedate.h",
+      "sha": "33d1ea0979e4cdfc5bf814361bce2a2f9f53abad"
+    },
+    {
+      "path": "swedll.h",
+      "sha": "47617ee189854c04c6ba8b6f693617f3317d6874"
+    },
+    {
+      "path": "swehouse.h",
+      "sha": "8fb5823132f1de7538798ed95dccbccbac6cf7db"
+    },
+    {
+      "path": "swejpl.h",
+      "sha": "fbee9d1d1c018928c2daea4af33e22e9b0edaf13"
+    },
+    {
+      "path": "swemptab.h",
+      "sha": "6a1b9a5b5ab6745b8e8cdf0a5173691890cf056a"
+    },
+    {
+      "path": "swenut2000a.h",
+      "sha": "c7907b81cd1d75bb7e058360e64f81263b9a16f2"
+    },
+    {
+      "path": "sweodef.h",
+      "sha": "cd36c6b3dd1dfbd61d72227f382cebfaf9722c8d"
+    },
+    {
+      "path": "sweph.h",
+      "sha": "7a80166abf5449e8d0cbe710a9c7935412539f2a"
+    },
+    {
+      "path": "swephexp.h",
+      "sha": "78f4adbe70940c70e16abbe37696496cb7fb029b"
+    },
+    {
+      "path": "swephlib.h",
+      "sha": "856e92f3cc46fb1b9db3c9945a9f0d031d6ef33a"
+    },
+    {
+      "path": "LICENSE",
+      "sha": "b6f68752cdb15969a8d5e769b0c2ebe4de7c63b9"
+    },
+    {
+      "path": "agpl-3.0.txt",
+      "sha": "be3f7b28e564e7dd05eaf59d64adba1a4065ac0e"
+    }
+  ]
+}

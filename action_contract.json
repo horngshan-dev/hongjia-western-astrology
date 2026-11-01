@@ -1,0 +1,162 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "洪家城隍爺西洋命盤候選介面",
+    "version": "0.5.0",
+    "description": "已實作本機候選API；尚未公開部署或啟用正式解讀。"
+  },
+  "paths": {
+    "/v1/astrology/natal": {
+      "post": {
+        "operationId": "calculateWesternNatalChart",
+        "description": "計算回歸黃道、地心視位置、Placidus 本命盤。候選引擎未完成整體驗收，不可用於正式解讀。",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BirthRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "候選計算結果；status 必須標示 candidate_calculated，production_ready=false",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "production_ready",
+                    "chart",
+                    "provenance",
+                    "warnings"
+                  ],
+                  "properties": {
+                    "status": {
+                      "const": "candidate_calculated"
+                    },
+                    "production_ready": {
+                      "const": false
+                    },
+                    "chart": {
+                      "type": "object"
+                    },
+                    "provenance": {
+                      "type": "object"
+                    },
+                    "warnings": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "資料不足、不合法、DST時間不存在或重複未選定、高緯度宮制不可用、候選日期超出範圍。回傳穩定code及chart=null，不自行補值。"
+          },
+          "503": {
+            "description": "引擎不可用、回傳旗標不符或驗收未允許啟用。不得改由模型猜盤。"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/source.tar.gz": {
+      "get": {
+        "operationId": "downloadCorrespondingSource",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "此建置的完整AGPL對應源碼，不需要認證",
+            "content": {
+              "application/gzip": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BirthRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "date",
+          "time",
+          "timezone",
+          "latitude",
+          "longitude",
+          "precision"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "西元國曆；其他曆法須先明確轉換，不猜測"
+          },
+          "time": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?$"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "IANA名稱，例如Asia/Taipei；不得以固定UTC+8代替歷史時區"
+          },
+          "latitude": {
+            "type": "number",
+            "exclusiveMinimum": -90,
+            "exclusiveMaximum": 90
+          },
+          "longitude": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          },
+          "precision": {
+            "type": "string",
+            "enum": [
+              "exact",
+              "approximate",
+              "unknown",
+              "hour_branch_only"
+            ]
+          },
+          "fold": {
+            "type": "integer",
+            "enum": [
+              0,
+              1
+            ],
+            "description": "僅在DST重複時間且經確認時選擇；不得預設"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

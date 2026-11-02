@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-only
-"""Single-process candidate HTTP service; source offer has no auth wall.
+"""Single-process natal HTTP service; source offer has no auth wall.
 No request bodies, names, tokens, or birth data are logged or persisted.
-Not yet deployed or approved for production use.
+Candidate by default; stable mode is an explicit, scoped release setting.
 """
 import hmac,json,os
 from pathlib import Path
@@ -22,7 +22,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-Length',str(len(body)));self.send_header('Cache-Control','no-store')
         self.send_header('Link','</source>; rel="service-desc"');self.end_headers();self.wfile.write(body)
     def do_GET(self):
-        if self.path=='/health':return self.reply(200,{'status':'candidate','production_ready':False,'source_url':'/source'})
+        if self.path=='/health':return self.reply(200,{'status':self.server.release_stage,'production_ready':self.server.release_stage=='stable','release_version':'1.0.0' if self.server.release_stage=='stable' else None,'source_url':'/source'})
         if self.path=='/license':return self.reply(200,{'license':'AGPL-3.0-only','source_url':'/source','publisher':'洪聖添','notice':'No warranty. Third-party notices retained.'})
         if self.path=='/source':
             archive=self.server.source_archive
@@ -64,16 +64,21 @@ class Handler(BaseHTTPRequestHandler):
             result=calculate(self.server.library,data['date'],data['time'],data['timezone'],data['latitude'],data['longitude'],precision=data['precision'],fold=data.get('fold'))
         except Exception:
             return self.reply(503,{'code':'ENGINE_UNAVAILABLE','chart':None})
+        success=result['status']=='candidate_calculated'
+        if success and self.server.release_stage=='stable':
+            result.update(status='calculated',production_ready=True,release_version='1.0.0',release_scope='small_scale_natal_service')
         result['source_url']='/source'
-        self.reply(200 if result['status']=='candidate_calculated' else 422,result)
+        self.reply(200 if success else 422,result)
 
 
-def create_server(address,library,source_archive,api_key):
+def create_server(address,library,source_archive,api_key,release_stage='candidate'):
+    if release_stage not in ('candidate','stable'):raise ValueError('Invalid release stage')
     if not isinstance(api_key,str) or len(api_key)<32:raise ValueError('Set a dedicated random API key with at least 32 characters')
     if not Path(library).is_file() or not Path(source_archive).is_file():raise ValueError('Build native library and corresponding source archive first')
     server=HTTPServer(address,Handler) # Deliberately serial: shared native state.
+    server.release_stage=release_stage
     server.library=str(library);server.source_archive=Path(source_archive);server.api_key=api_key
     return server
 
 if __name__=='__main__':
-    create_server((os.environ.get('HOST','127.0.0.1'),int(os.environ.get('PORT','8080'))),ROOT/'build/libswe.so',ROOT/'dist/source.tar.gz',os.environ.get('WESTERN_API_KEY','')).serve_forever()
+    create_server((os.environ.get('HOST','127.0.0.1'),int(os.environ.get('PORT','8080'))),ROOT/'build/libswe.so',ROOT/'dist/source.tar.gz',os.environ.get('WESTERN_API_KEY',''),os.environ.get('WESTERN_RELEASE_STAGE','candidate')).serve_forever()

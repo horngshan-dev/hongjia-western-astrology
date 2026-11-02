@@ -32,6 +32,13 @@ class HttpTests(unittest.TestCase):
     def test_unknown_time(self):
         d=self.payload();d.update(time=None,precision='unknown');status,b=self.call(d)
         self.assertEqual(status,422);self.assertIsNone(json.loads(b)['chart'])
+    def test_unvalidated_future_time_is_structured_422(self):
+        d=self.payload();d.update(date='2099-12-31',timezone='UTC')
+        status,b=self.call(d);r=json.loads(b)
+        self.assertEqual(status,422)
+        self.assertEqual(r['code'],'TIME_MODEL_OUTSIDE_VALIDATED_RANGE')
+        self.assertIsNone(r['chart'])
+        self.assertEqual(r['source_url'],'/source')
     def test_extra_private_field_rejected(self):
         d=self.payload();d['name']='synthetic';self.assertEqual(self.call(d)[0],422)
     def test_malformed_duplicate_or_nonfinite(self):

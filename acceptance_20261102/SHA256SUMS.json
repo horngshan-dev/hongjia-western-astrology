@@ -1,6 +1,8 @@
 {
+  "PHASE3.md": "0db593095f7ce1770641ed204e3f409a8f4b187cb5aaf27927baefbfb95d4d4e",
   "REPORT.md": "7a77088690b996b73bff92b7c58a95457a54eb40f2f9951570272c9ec5d6f784",
   "cross_epoch_summary.json": "aff81d4d83fe5dd8982393379e21234179af4aeb02d609996d6dfc085fde4bc6",
+  "house_erfa_comparison.json": "052d6552702ba81dcddcbf692781a0ba903fea8580ef69d73e8cc3837b88ef71",
   "mcp_boundary_checks.json": "bcb403c6699eeaf396335a283b8ea579cc6bdf8d3dbecc983a794f0c279b607a",
   "mid_century/jpl/Jupiter.json": "6502b64be0d13c8858da5278ef7bb7519e6112ee4629fb775dc4a604709dfedf",
   "mid_century/jpl/Mars.json": "4ef16ce6f2a7203d839f327db637b71e8666d22ea38d0377bb31bafe4be6eba5",

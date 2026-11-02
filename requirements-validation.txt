@@ -1,0 +1,3 @@
+# Optional independent checker only; NOT a runtime dependency.
+numpy==2.3.5
+pyerfa==2.0.1.5

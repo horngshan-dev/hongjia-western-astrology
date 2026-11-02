@@ -2,14 +2,14 @@
   "openapi": "3.1.0",
   "info": {
     "title": "洪家城隍爺西洋命盤候選介面",
-    "version": "0.5.2",
-    "description": "已實作本機候選API；尚未公開部署或啟用正式解讀。"
+    "version": "0.6.0-candidate",
+    "description": "候選時間模型v0.2.0與ERFA宮位驗證分支；尚未部署，production_ready仍為false。"
   },
   "paths": {
     "/v1/astrology/natal": {
       "post": {
         "operationId": "calculateWesternNatalChart",
-        "description": "計算回歸黃道、地心視位置、Placidus 本命盤。候選引擎未完成整體驗收，不可用於正式解讀。",
+        "description": "計算回歸黃道、地心視位置、Placidus 本命盤。候選引擎未完成整體驗收，不可用於正式解讀。 時間模型上限為UTC 2027-01-01不含；1972年前按UT1近似並回傳警示。",
         "requestBody": {
           "required": true,
           "content": {
@@ -32,7 +32,8 @@
                     "production_ready",
                     "chart",
                     "provenance",
-                    "warnings"
+                    "warnings",
+                    "time_model"
                   ],
                   "properties": {
                     "status": {
@@ -52,6 +53,10 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "time_model": {
+                      "type": "object",
+                      "description": "固定時間政策、UTC截止、歷史UT1近似及閏秒來源。"
                     }
                   }
                 }
@@ -59,7 +64,7 @@
             }
           },
           "422": {
-            "description": "資料不足、不合法、DST時間不存在或重複未選定、高緯度宮制不可用、候選日期超出範圍。回傳穩定code及chart=null，不自行補值。"
+            "description": "資料不足、不合法、DST時間不存在或重複未選定、高緯度宮制不可用、候選日期超出範圍。回傳穩定code及chart=null，不自行補值。 含TIME_MODEL_OUTSIDE_VALIDATED_RANGE及TIME_STANDARD_CONVERSION_UNVERIFIED；chart=null。"
           },
           "503": {
             "description": "引擎不可用、回傳旗標不符或驗收未允許啟用。不得改由模型猜盤。"

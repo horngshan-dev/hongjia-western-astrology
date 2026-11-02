@@ -1,0 +1,136 @@
+{
+  "status": "candidate_calculated",
+  "production_ready": false,
+  "input": {
+    "contract": "hongjia-western-birth-preflight@0.1.0",
+    "input_ready": true,
+    "provenance": {
+      "tzdata_package": "2026.3",
+      "iana_version": "2026c"
+    },
+    "timezone": "Asia/Taipei",
+    "birth_time_precision": "exact",
+    "selected": {
+      "fold": 0,
+      "utc": "1979-07-01T03:00:00+00:00",
+      "local_with_offset": "1979-07-01T12:00:00+09:00"
+    },
+    "warnings": []
+  },
+  "coordinates": {
+    "latitude": 25.033,
+    "longitude": 121.5654
+  },
+  "provenance": {
+    "engine": "Swiss Ephemeris",
+    "version": "2.10.03",
+    "source_commit": "94621aba9f3ff9c32cb721eac0380c30dbb153fe",
+    "ephemeris": "Moshier analytical",
+    "zodiac": "tropical",
+    "reference": "geocentric apparent",
+    "house_system": "Placidus",
+    "jd_tt": 2444055.6255808333,
+    "jd_ut1": 2444055.6250012666
+  },
+  "chart": {
+    "planets": [
+      {
+        "name": "Sun",
+        "longitude": 98.70815122682643,
+        "latitude": 1.3126859222084675e-05,
+        "longitude_speed": 0.9535238065240191,
+        "retrograde": false,
+        "returned_flags": 260
+      },
+      {
+        "name": "Moon",
+        "longitude": 172.00629008899986,
+        "latitude": 1.0357324289903092,
+        "longitude_speed": 11.8501552241798,
+        "retrograde": false,
+        "returned_flags": 260
+      },
+      {
+        "name": "Mercury",
+        "longitude": 124.40711605508649,
+        "latitude": 0.5392245706390651,
+        "longitude_speed": 1.097880941135463,
+        "retrograde": false,
+        "returned_flags": 260
+      },
+      {
+        "name": "Venus",
+        "longitude": 83.58642718619615,
+        "latitude": -0.3707403124817581,
+        "longitude_speed": 1.220567283676396,
+        "retrograde": false,
+        "returned_flags": 260
+      },
+      {
+        "name": "Mars",
+        "longitude": 63.58695340547202,
+        "latitude": -0.20675632886475498,
+        "longitude_speed": 0.7082225590999462,
+        "retrograde": false,
+        "returned_flags": 260
+      },
+      {
+        "name": "Jupiter",
+        "longitude": 130.799553707011,
+        "latitude": 0.6699123328252703,
+        "longitude_speed": 0.201583072119693,
+        "retrograde": false,
+        "returned_flags": 260
+      },
+      {
+        "name": "Saturn",
+        "longitude": 159.34319011743224,
+        "latitude": 1.8502829259250433,
+        "longitude_speed": 0.08145556255488554,
+        "retrograde": false,
+        "returned_flags": 260
+      },
+      {
+        "name": "Uranus",
+        "longitude": 227.18855989332226,
+        "latitude": 0.32989038088308414,
+        "longitude_speed": -0.02070478606244567,
+        "retrograde": true,
+        "returned_flags": 260
+      },
+      {
+        "name": "Neptune",
+        "longitude": 258.58191619344433,
+        "latitude": 1.4483823586910434,
+        "longitude_speed": -0.024984736255544104,
+        "retrograde": true,
+        "returned_flags": 260
+      },
+      {
+        "name": "Pluto",
+        "longitude": 196.4264764655959,
+        "latitude": 17.22020131822862,
+        "longitude_speed": 0.0022637137400886797,
+        "retrograde": false,
+        "returned_flags": 260
+      }
+    ],
+    "ascendant": 175.59783801703506,
+    "midheaven": 85.54161227904008,
+    "house_cusps": [
+      175.59783801703506,
+      203.9957453873733,
+      234.44343016428132,
+      265.54161227904007,
+      296.5346650477974,
+      326.90281596077824,
+      355.5978380170351,
+      23.99574538737329,
+      54.443430164281324,
+      85.54161227904008,
+      116.53466504779738,
+      146.90281596077824
+    ]
+  },
+  "warnings": []
+}

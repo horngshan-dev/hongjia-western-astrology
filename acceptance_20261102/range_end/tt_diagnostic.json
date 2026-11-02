@@ -1,0 +1,13 @@
+{
+  "diagnostic_only": true,
+  "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27301%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500%40399%27&TLIST=%272488069.0010784888%27&TIME_TYPE=%27TT%27&TIME_DIGITS=%27FRACSEC%27&QUANTITIES=%2731%27&CSV_FORMAT=%27YES%27&ANG_FORMAT=%27DEG%27",
+  "jd_tt": 2488069.001078489,
+  "api_signature": {
+    "source": "NASA/JPL Horizons API",
+    "version": "1.2"
+  },
+  "epoch_line": "2099-Dec-31 12:01:33.181, , , 150.4168198,  1.6865624,",
+  "longitude_error_arcsec": 1.2866258998883495,
+  "latitude_error_arcsec": 0.7707925760402468,
+  "original_utc_test_passed": false
+}

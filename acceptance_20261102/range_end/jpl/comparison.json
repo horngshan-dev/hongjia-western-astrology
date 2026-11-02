@@ -1,0 +1,147 @@
+{
+  "status": "not_passed",
+  "utc": "2099-12-31T12:00:00+00:00",
+  "rows": [
+    {
+      "name": "Sun",
+      "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%2710%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500%40399%27&TLIST=%272099-12-31+12%3A00%3A00%27&TIME_TYPE=%27UT%27&QUANTITIES=%2731%27&CSV_FORMAT=%27YES%27&ANG_FORMAT=%27DEG%27",
+      "status": "pass",
+      "api_signature": {
+        "version": "1.2",
+        "source": "NASA/JPL Horizons API"
+      },
+      "longitude": 280.0947595,
+      "latitude": 0.0001069,
+      "longitude_error_arcsec": 0.8491556724720795,
+      "latitude_error_arcsec": 0.03286112482514685,
+      "tolerance_arcsec": 2.0
+    },
+    {
+      "name": "Moon",
+      "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27301%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500%40399%27&TLIST=%272099-12-31+12%3A00%3A00%27&TIME_TYPE=%27UT%27&QUANTITIES=%2731%27&CSV_FORMAT=%27YES%27&ANG_FORMAT=%27DEG%27",
+      "status": "review",
+      "api_signature": {
+        "source": "NASA/JPL Horizons API",
+        "version": "1.2"
+      },
+      "longitude": 150.4129365,
+      "latitude": 1.6868862,
+      "longitude_error_arcsec": 15.266505899933236,
+      "latitude_error_arcsec": 1.9364725760405932,
+      "tolerance_arcsec": 5.0
+    },
+    {
+      "name": "Mercury",
+      "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27199%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500%40399%27&TLIST=%272099-12-31+12%3A00%3A00%27&TIME_TYPE=%27UT%27&QUANTITIES=%2731%27&CSV_FORMAT=%27YES%27&ANG_FORMAT=%27DEG%27",
+      "status": "pass",
+      "api_signature": {
+        "source": "NASA/JPL Horizons API",
+        "version": "1.2"
+      },
+      "longitude": 287.1947815,
+      "latitude": -2.1002698,
+      "longitude_error_arcsec": 1.4389270828814915,
+      "latitude_error_arcsec": 0.07873168547192222,
+      "tolerance_arcsec": 2.0
+    },
+    {
+      "name": "Venus",
+      "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27299%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500%40399%27&TLIST=%272099-12-31+12%3A00%3A00%27&TIME_TYPE=%27UT%27&QUANTITIES=%2731%27&CSV_FORMAT=%27YES%27&ANG_FORMAT=%27DEG%27",
+      "status": "pass",
+      "api_signature": {
+        "source": "NASA/JPL Horizons API",
+        "version": "1.2"
+      },
+      "longitude": 319.4689655,
+      "latitude": -1.8632744,
+      "longitude_error_arcsec": 1.0466309951198127,
+      "latitude_error_arcsec": 0.03494326886963606,
+      "tolerance_arcsec": 2.0
+    },
+    {
+      "name": "Mars",
+      "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27499%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500%40399%27&TLIST=%272099-12-31+12%3A00%3A00%27&TIME_TYPE=%27UT%27&QUANTITIES=%2731%27&CSV_FORMAT=%27YES%27&ANG_FORMAT=%27DEG%27",
+      "status": "pass",
+      "api_signature": {
+        "source": "NASA/JPL Horizons API",
+        "version": "1.2"
+      },
+      "longitude": 29.3227076,
+      "latitude": 0.9419882,
+      "longitude_error_arcsec": 0.27454982108565673,
+      "latitude_error_arcsec": 0.06274198841391687,
+      "tolerance_arcsec": 2.0
+    },
+    {
+      "name": "Jupiter",
+      "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27599%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500%40399%27&TLIST=%272099-12-31+12%3A00%3A00%27&TIME_TYPE=%27UT%27&QUANTITIES=%2731%27&CSV_FORMAT=%27YES%27&ANG_FORMAT=%27DEG%27",
+      "status": "pass",
+      "api_signature": {
+        "source": "NASA/JPL Horizons API",
+        "version": "1.2"
+      },
+      "longitude": 201.1528512,
+      "latitude": 1.2747739,
+      "longitude_error_arcsec": 0.14719181496047895,
+      "latitude_error_arcsec": 0.02490296513162349,
+      "tolerance_arcsec": 2.0
+    },
+    {
+      "name": "Saturn",
+      "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27699%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500%40399%27&TLIST=%272099-12-31+12%3A00%3A00%27&TIME_TYPE=%27UT%27&QUANTITIES=%2731%27&CSV_FORMAT=%27YES%27&ANG_FORMAT=%27DEG%27",
+      "status": "pass",
+      "api_signature": {
+        "source": "NASA/JPL Horizons API",
+        "version": "1.2"
+      },
+      "longitude": 205.6024737,
+      "latitude": 2.4201634,
+      "longitude_error_arcsec": 0.1420672409153667,
+      "latitude_error_arcsec": 0.031451401163451465,
+      "tolerance_arcsec": 2.0
+    },
+    {
+      "name": "Uranus",
+      "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27799%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500%40399%27&TLIST=%272099-12-31+12%3A00%3A00%27&TIME_TYPE=%27UT%27&QUANTITIES=%2731%27&CSV_FORMAT=%27YES%27&ANG_FORMAT=%27DEG%27",
+      "status": "pass",
+      "api_signature": {
+        "source": "NASA/JPL Horizons API",
+        "version": "1.2"
+      },
+      "longitude": 17.7391401,
+      "latitude": -0.6297792,
+      "longitude_error_arcsec": 0.09722110758048075,
+      "latitude_error_arcsec": 0.04674796030559314,
+      "tolerance_arcsec": 2.0
+    },
+    {
+      "name": "Neptune",
+      "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27899%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500%40399%27&TLIST=%272099-12-31+12%3A00%3A00%27&TIME_TYPE=%27UT%27&QUANTITIES=%2731%27&CSV_FORMAT=%27YES%27&ANG_FORMAT=%27DEG%27",
+      "status": "pass",
+      "api_signature": {
+        "version": "1.2",
+        "source": "NASA/JPL Horizons API"
+      },
+      "longitude": 167.2940467,
+      "latitude": 0.9635462,
+      "longitude_error_arcsec": 1.9842830971811054,
+      "latitude_error_arcsec": 0.06352203142889756,
+      "tolerance_arcsec": 2.0
+    },
+    {
+      "name": "Pluto",
+      "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27999%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27500%40399%27&TLIST=%272099-12-31+12%3A00%3A00%27&TIME_TYPE=%27UT%27&QUANTITIES=%2731%27&CSV_FORMAT=%27YES%27&ANG_FORMAT=%27DEG%27",
+      "status": "pass",
+      "api_signature": {
+        "source": "NASA/JPL Horizons API",
+        "version": "1.2"
+      },
+      "longitude": 32.4057824,
+      "latitude": -16.9240666,
+      "longitude_error_arcsec": 1.2614570690288929,
+      "latitude_error_arcsec": 0.06869193993139788,
+      "tolerance_arcsec": 2.0
+    }
+  ],
+  "coordinate_note": "Compare apparent geocentric ecliptic-of-date positions. Frame/model differences remain; not an absolute-accuracy certification."
+}

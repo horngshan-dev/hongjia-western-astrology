@@ -1,0 +1,45 @@
+{
+  "synthetic_only": true,
+  "production_ready_changed": false,
+  "cases_completed": 5,
+  "all_requested_epochs_passed": false,
+  "cases": [
+    {
+      "id": "range_start",
+      "utc": "1900-01-01T12:00:00+00:00",
+      "status": "pass_for_sample_only",
+      "rows": 10,
+      "review_bodies": []
+    },
+    {
+      "id": "mid_century",
+      "utc": "1945-08-15T12:00:00+00:00",
+      "status": "pass_for_sample_only",
+      "rows": 10,
+      "review_bodies": []
+    },
+    {
+      "id": "taipei_dst",
+      "utc": "1979-07-01T03:00:00+00:00",
+      "status": "pass_for_sample_only",
+      "rows": 10,
+      "review_bodies": []
+    },
+    {
+      "id": "modern_south",
+      "utc": "2024-06-21T02:00:00+00:00",
+      "status": "pass_for_sample_only",
+      "rows": 10,
+      "review_bodies": []
+    },
+    {
+      "id": "range_end",
+      "utc": "2099-12-31T12:00:00+00:00",
+      "status": "not_passed",
+      "rows": 10,
+      "review_bodies": [
+        "Moon"
+      ]
+    }
+  ]
+}

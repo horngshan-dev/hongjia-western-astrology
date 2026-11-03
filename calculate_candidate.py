@@ -4,6 +4,7 @@ import ctypes as C
 import math
 from datetime import datetime
 from birth_input import prepare_birth
+from time_policy import check_time_model, UTC_LIMIT
 
 def calculate(library, date, time, zone, latitude, longitude, **options):
     pre = prepare_birth(date, time, zone, **options)
@@ -14,6 +15,8 @@ def calculate(library, date, time, zone, latitude, longitude, **options):
     dt = datetime.fromisoformat(pre['selected']['utc'])
     if not 1900 <= dt.year <= 2099:
         return {'status': 'unsupported', 'code': 'CANDIDATE_DATE_RANGE', 'chart': None}
+    if dt >= UTC_LIMIT:
+        return {'status':'unsupported', 'code':'TIME_MODEL_OUTSIDE_VALIDATED_RANGE', 'chart':None}
     lib = C.CDLL(library)
     D = C.POINTER(C.c_double)
     lib.swe_utc_to_jd.argtypes = [C.c_int]*5 + [C.c_double, C.c_int, D, C.c_char_p]
@@ -30,6 +33,9 @@ def calculate(library, date, time, zone, latitude, longitude, **options):
     err = C.create_string_buffer(512)
     if lib.swe_utc_to_jd(dt.year,dt.month,dt.day,dt.hour,dt.minute,dt.second,1,jd,err) < 0:
         raise ValueError(err.value.decode())
+    time_model = check_time_model(dt, jd[0])
+    if 'code' in time_model:
+        return time_model
     planets = []
     for body, name in enumerate(('Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn','Uranus','Neptune','Pluto')):
         values = (C.c_double*6)()
@@ -43,4 +49,5 @@ def calculate(library, date, time, zone, latitude, longitude, **options):
     return dict(status='candidate_calculated', production_ready=False,
         input={k:v for k,v in pre.items() if k not in ('chart','calculation_ready','code','status')}, coordinates=dict(latitude=latitude,longitude=longitude),
         provenance=dict(engine='Swiss Ephemeris',version=version.value.decode(),source_commit='94621aba9f3ff9c32cb721eac0380c30dbb153fe',ephemeris='Moshier analytical',zodiac='tropical',reference='geocentric apparent',house_system='Placidus',jd_tt=jd[0],jd_ut1=jd[1]),
-        chart=dict(planets=planets,ascendant=angles[0],midheaven=angles[1],house_cusps=list(cusps)[1:]),warnings=pre['warnings'])
+        time_model=time_model['metadata'],
+        chart=dict(planets=planets,ascendant=angles[0],midheaven=angles[1],house_cusps=list(cusps)[1:]),warnings=pre['warnings']+time_model['warnings'])
